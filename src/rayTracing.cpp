@@ -1,6 +1,7 @@
 ﻿// CMakeProject1.cpp : Defines the entry point for the application.
 //
-
+#include"vec3.h"
+#include"color.h"
 #include "rayTracing.h"
 
 
@@ -16,15 +17,8 @@ int main()
 		std::clog << "\rScan lines remaining: " << (imageHeight - j) << ' ' << std::flush;
 		for (int i = 0; i < imageWidth; i++)
 		{
-			auto r = double(i) / (imageWidth - 1);
-			auto g = double(j) / (imageHeight - 1);
-			auto b = 0.0;
-
-			int imageRed = int(255.999 * r);
-			int imageGreen = int(255.999 * g);
-			int imageBlue = int(255.999 * b);
-
-			std::cout << imageRed << ' ' << imageGreen << ' ' << imageBlue << "\n";
+			auto pixel_color = color(double(i) / (imageWidth - 1), double(j) / (imageHeight - 1), 0);
+			write_color(std::cout,pixel_color);
 		}
 	}
 
