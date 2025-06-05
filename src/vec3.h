@@ -38,7 +38,7 @@ public:
 		return *this;
 	}
 
-	vec3& operator+=(const vec3& v)
+	vec3& operator/=(double t)
 	{
 		return *this *= 1/t;
 	}
@@ -46,6 +46,10 @@ public:
 	double length() const { return std::sqrt(lengthSquared()); }
 	double lengthSquared() const { return e[0] * e[0] + e[1] * e[1] + e[2] * e[2]; }
 };
+
+using point3 = vec3;
+
+inline std::ostream& operator<<(std::ostream& out, const vec3& v) { return out << v.e[0] << ' ' << v.e[1]<< ' ' << v.e[2]; }
 
 #endif
 
