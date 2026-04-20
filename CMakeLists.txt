@@ -1,12 +1,13 @@
-﻿cmake_minimum_required(VERSION 3.28)
-project(CMakeSFMLProject LANGUAGES CXX)
+﻿cmake_minimum_required(VERSION 3.10)
+project(RTinOneWeekend LANGUAGES CXX)
 
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
 
-add_executable(main src/rayTracing.cpp)
+set(ONE_WEEKEND_SRC
+src/main.cc)
 
-target_compile_features(main PRIVATE cxx_std_17)
-target_link_libraries(main)
+include_directories(src)
 
-set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT main)
-
+add_executable(main ${ONE_WEEKEND_SRC})
